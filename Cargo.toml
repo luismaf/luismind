@@ -1,0 +1,25 @@
+# Cargo.toml
+[package]
+name = "luismind"
+version = "2.2.0"
+edition = "2021"
+authors = ["LMF Holdings"]
+description = "Autonomous Development Agent for Rust"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+colored = "2"
+chrono = "0.4"
+dirs = "5"
+ctrlc = "3"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+reqwest = { version = "0.11", features = ["json", "rustls-tls", "gzip"] }
+
+[[bin]]
+name = "luismind"
+path = "src/main.rs"
+
+[profile.release]
+opt-level = 3
+lto = true
